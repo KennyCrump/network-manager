@@ -6,7 +6,7 @@ const ac = require('./controllers/authController')
 
 const app = express()
 
-const {CONNECTION_STRING, SERVER_PORT, SECRET} = process.env
+const {CONNECTION_STRING, SERVER_PORT, SECRET, NODE_ENV, ENVIRONMENT} = process.env
 
 app.use(express.json())
 
@@ -16,8 +16,21 @@ app.use(session({
     saveUninitialized: false
 }))
 
+app.use(async (req, res, next) => {
+    if(NODE_ENV === 'development'){
+        const db = req.app.get('db')
+        const userData = await db.set_data()
+        req.session.user = userData[0]
+        next()
+    }else{
+        next()
+    }
+})
+
 app.post('/auth/register', ac.register)
 app.post('/auth/login', ac.login)
+app.post('/auth/logout', ac.logout)
+app.get('/auth/user', ac.getUserData)
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
