@@ -4,13 +4,16 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { HashRouter } from "react-router-dom";
 
 const theme = createMuiTheme();
 
 ReactDOM.render(
-  <MuiThemeProvider theme={theme}>
+  //   <MuiThemeProvider theme={theme}>
+  <HashRouter>
     <App />
-  </MuiThemeProvider>,
+  </HashRouter>,
+  //   </MuiThemeProvider>,
   document.getElementById("root")
 );
 

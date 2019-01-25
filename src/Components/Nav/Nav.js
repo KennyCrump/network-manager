@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
@@ -28,6 +29,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+
+import routes from '../../routes'
+import { link } from 'fs';
 
 const drawerWidth = 240;
 
@@ -311,11 +315,13 @@ class Nav extends React.Component {
           </div>
           <Divider />
           <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem button key={text}>
+            {[{label: 'Home', path: '/', icon: ''}, {label: 'Connection', path: '/connections/add', icon: ''}, {label: 'Send Email', path: '/connections/add', icon: ''}, {label: 'Drafts', path: '/connections/add', icon: ''}].map((link, index) => (
+              <Link to={link.path}>
+              <ListItem button key={link.label}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={link.label} />
               </ListItem>
+              </Link>
             ))}
           </List>
           <Divider />
@@ -333,7 +339,7 @@ class Nav extends React.Component {
             [classes.contentShift]: open,
           })}
         >
-          
+          {routes}
         </main>
       </div>
     );
