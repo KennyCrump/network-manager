@@ -121,7 +121,9 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing.unit * 3,
+    // padding: theme.spacing.unit * 3,
+    marginTop: '64px',
+    height: `calc(100vh - 64px)`,
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -254,7 +256,7 @@ class Nav extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
-              Persistent drawer
+              Network Manager
             </Typography>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
@@ -318,7 +320,7 @@ class Nav extends React.Component {
           </div>
           <Divider />
           <List>
-            {[{label: 'Home', path: '/', icon: 'home'}, {label: 'Connections', path: '/connections/add', icon: 'users'}, {label: 'Companies', path: '/connections/add', icon: 'building outline'}, {label: 'Drafts', path: '/connections/add', icon: ''}].map((link, index) => (
+            {[{label: 'Home', path: '/', icon: 'home'}, {label: 'Connections', path: '/connections', icon: 'users'}, {label: 'Companies', path: '/connections/add', icon: 'building outline'}, {label: 'Drafts', path: '/connections/add', icon: ''}].map((link, index) => (
               <Link key={link.label} to={link.path}>
               <ListItem button >
                 <ListItemIcon><Icon name={link.icon} className={classes.icon} size='large' /></ListItemIcon>

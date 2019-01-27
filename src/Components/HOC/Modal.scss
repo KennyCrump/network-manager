@@ -1,0 +1,26 @@
+.modal-wrapper {
+  height: 100%;
+  width: 100%;
+  background-color: #dfdfdf60;
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  .modal {
+    margin-top: 5vh;
+    position: relative;
+    height: 70%;
+    overflow-y: auto;
+    width: 70%;
+    background-color: bisque;
+  }
+  .cancel {
+    position: absolute;
+    margin: 0;
+    cursor: pointer;
+    top: 5px;
+    right: 10px;
+  }
+}

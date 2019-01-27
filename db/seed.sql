@@ -13,9 +13,11 @@ DROP TABLE IF EXISTS connection;
 CREATE TABLE connection (
 connection_id SERIAL PRIMARY KEY,
 user_id INTEGER references users(user_id),
-name VARCHAR(50),
-company VARCHAR(50),
+first_name VARCHAR(50),
+last_name VARCHAR(50),
 company_id INTEGER,
+company VARCHAR(50),
+position VARCHAR(60),
 relation VARCHAR(400),
 email VARCHAR(50),
 linkedin VARCHAR(150),

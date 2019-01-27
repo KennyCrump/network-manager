@@ -1,3 +1,47 @@
+.connections {
+  position: relative;
+  height: 100%;
+  padding: 20px;
+}
+.options-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  height: 110px;
+
+  .menu-choices-wrapper {
+    position: absolute;
+    right: 75px;
+    top: 55px;
+
+    .menu-choices {
+      position: relative;
+      width: 200px;
+      height: 350px;
+      background: whitesmoke;
+      border: 1px solid rgb(158, 158, 158);
+
+      .left-right {
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        width: 0;
+        height: 0;
+        border-width: 15px;
+        border-style: solid;
+        border-color: transparent transparent transparent rgb(158, 158, 158);
+      }
+      .left-right-border {
+        right: -28px;
+        border-color: transparent transparent transparent whitesmoke;
+      }
+    }
+  }
+}
 .connection-mini-wrapper {
   display: flex;
   flex-direction: column;
@@ -9,7 +53,7 @@
   margin-bottom: 5px;
   display: flex;
   padding: 5px;
-    justify-content: space-between;
+  justify-content: space-between;
   h3,
   h5 {
     margin: 4px 0;
@@ -19,8 +63,39 @@
     padding-left: 15px;
     display: flex;
   }
-  .info-display{
-      width: 60%;
-      padding-top: 4px;
+  .info-display {
+    width: 60%;
+    padding-top: 4px;
   }
+  .profile-icon {
+    margin-right: 14px;
+    margin-top: 10px;
+  }
+}
+.add-connection {
+  background-color: cadetblue;
+  height: 100%;
+  width: 100%;
+  padding-top: 40px;
+  .add-form {
+    width: 70%;
+    text-align: left;
+    margin: auto;
+  }
+  h1{
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+
+  }
+  h4 {
+    margin: 4px;
+  }
+  .required {
+    font-size: 18px;
+    color: rgb(134, 1, 1);
+    position: relative;
+    top: -2px;
+  }
+  
 }
