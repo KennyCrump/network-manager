@@ -29,9 +29,11 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { Icon } from 'semantic-ui-react'
+
 
 import routes from '../../routes'
-import { link } from 'fs';
+
 
 const drawerWidth = 240;
 
@@ -95,6 +97,7 @@ const styles = theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
+  
   menuButton: {
     marginLeft: 12,
     marginRight: 20,
@@ -315,10 +318,10 @@ class Nav extends React.Component {
           </div>
           <Divider />
           <List>
-            {[{label: 'Home', path: '/', icon: ''}, {label: 'Connection', path: '/connections/add', icon: ''}, {label: 'Send Email', path: '/connections/add', icon: ''}, {label: 'Drafts', path: '/connections/add', icon: ''}].map((link, index) => (
-              <Link to={link.path}>
-              <ListItem button key={link.label}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            {[{label: 'Home', path: '/', icon: 'home'}, {label: 'Connections', path: '/connections/add', icon: 'users'}, {label: 'Companies', path: '/connections/add', icon: 'building outline'}, {label: 'Drafts', path: '/connections/add', icon: ''}].map((link, index) => (
+              <Link key={link.label} to={link.path}>
+              <ListItem button >
+                <ListItemIcon><Icon name={link.icon} className={classes.icon} size='large' /></ListItemIcon>
                 <ListItemText primary={link.label} />
               </ListItem>
               </Link>

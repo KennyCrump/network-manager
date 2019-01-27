@@ -8,5 +8,13 @@ module.exports = {
         let addedUser = await db.add_connection({user_id, name, company, relation, email, linkedin, dateAdded})
         addedUser = addedUser[0]
         res.status(200).send(addedUser)
+    },
+    getAllConnections: async (req, res) => {
+        const {user_id} = req.session.user
+        const db = req.app.get('db')
+
+        const connections = await db.get_all_connections({user_id})
+
+        res.status(200).send(connections)
     }
 }

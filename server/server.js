@@ -35,6 +35,7 @@ app.post('/auth/logout', ac.logout)
 app.get('/auth/user', ac.getUserData)
 
 app.post('/api/connection', cc.addConnection)
+app.get('/api/connections', cc.getAllConnections)
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
