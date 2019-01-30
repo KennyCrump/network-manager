@@ -1,7 +1,7 @@
 .modal-wrapper {
   height: 100%;
   width: 100%;
-  background-color: #dfdfdf60;
+  background-color: #dfdfdf8f;
   display: flex;
   justify-content: center;
   // align-items: center;
@@ -11,16 +11,14 @@
   .modal {
     margin-top: 5vh;
     position: relative;
-    height: 70%;
-    overflow-y: auto;
-    width: 70%;
-    background-color: bisque;
+    height: 80%;
+    max-width: 500px;
   }
   .cancel {
     position: absolute;
     margin: 0;
     cursor: pointer;
-    top: 5px;
+    top: 25px;
     right: 10px;
   }
 }

@@ -28,15 +28,14 @@ class Modal extends Component {
     
     return (
 
-        open ?
+        open &&
         <div className="modal-wrapper" onClick={closeModalFunc}>
           <div className="modal" onClick={e => e.stopPropagation()}>
             { render(closeModalFunc) }
             <h3 className='cancel' onClick={closeModalFunc}>X</h3>
           </div>
         </div>
-        :
-        null
+        
     );
   }
 }

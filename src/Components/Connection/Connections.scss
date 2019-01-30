@@ -40,7 +40,7 @@
         border-color: transparent transparent transparent whitesmoke;
       }
     }
-  }
+  } 
 }
 .connection-mini-wrapper {
   display: flex;
@@ -73,14 +73,31 @@
   }
 }
 .add-connection {
-  background-color: cadetblue;
+  background-color: whitesmoke;
+  border: 1px solid #303F9F;
   height: 100%;
   width: 100%;
   padding-top: 40px;
+  padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
+    box-sizing: content-box;
+    border-radius: 5px;
+    overflow-y: auto;
+    h1{
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
   .add-form {
     width: 70%;
     text-align: left;
     margin: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    .add-button{
+      margin-top: 35px;
+      margin-bottom: 10px;
+    }
   }
   h1{
     text-align: center;
