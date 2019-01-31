@@ -4,7 +4,8 @@ const session = require('express-session')
 const massive = require('massive')
 
 const ac = require('./controllers/authController')
-const cc = require('./controllers/connectionController')
+const connCtrl = require('./controllers/connectionController')
+const compCtrl = require('./controllers/companyController')
 
 const app = express()
 
@@ -23,6 +24,7 @@ app.use(async (req, res, next) => {
         const db = req.app.get('db')
         const userData = await db.set_data()
         req.session.user = userData[0]
+        console.log('mid', req.session.user)
         next()
     }else{
         next()
@@ -34,8 +36,11 @@ app.post('/auth/login', ac.login)
 app.post('/auth/logout', ac.logout)
 app.get('/auth/user', ac.getUserData)
 
-app.post('/api/connection', cc.addConnection)
-app.get('/api/connections', cc.getAllConnections)
+app.post('/api/connection', connCtrl.addConnection)
+app.get('/api/connections', connCtrl.getAllConnections)
+
+app.post('/api/company', compCtrl.addCompany)
+app.get('/api/companies', compCtrl.getAllCompanies)
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)

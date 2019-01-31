@@ -41,12 +41,9 @@ class Connections extends Component {
     return (
       <div className='connections' onClick={(e) => this.setState({optionsToggle: false})}>
         <div className='options-menu'>
-          {/* <Fab> */}
+
               <Icon circular inverted name='add user' size='large' color='green'onClick={() => this.setState({addModalToggle: true})}/>
-          {/* </Fab> */}
-          {/* <Fab> */}
             <Icon circular inverted className='options-button' name='options' size='large' color='grey' onClick={(e) => this.openOptionsMenu(e)}/>
-          {/* </Fab> */}
           { optionsToggle &&
             <div onClick={(e) => e.stopPropagation()} className="menu-choices-wrapper">
             <div className="menu-choices">

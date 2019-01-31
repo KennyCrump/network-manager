@@ -1,4 +1,5 @@
 
+DROP TABLE IF EXISTS company;
 DROP TABLE IF EXISTS connection;
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
@@ -22,4 +23,15 @@ relation VARCHAR(400),
 email VARCHAR(50),
 linkedin VARCHAR(150),
 date_added VARCHAR(20)
+);
+
+DROP TABLE IF EXISTS company;
+CREATE TABLE company (
+company_id SERIAL PRIMARY KEY,
+user_id int references users(user_id),
+company_name VARCHAR(50),
+logo VARCHAR(400),
+description VARCHAR(400),
+location VARCHAR(150),
+website VARCHAR(150)
 );
