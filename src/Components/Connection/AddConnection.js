@@ -19,14 +19,9 @@ class AddConnection extends Component {
       relation: "",
       email: "",
       linkedin: "",
-      dateAdded: ""
+      dateAdded: moment().format('MM/DD/YY')
     };
   }
-  // handleChange = (prop, val) => {
-  //     this.setState({
-  //         [prop]: val
-  //     })
-  // }
   handleChange = prop => event => {
     this.setState({
       [prop]: event.target.value
@@ -55,10 +50,12 @@ class AddConnection extends Component {
     });
     const newConnectionsList = res.data;
     console.log(newConnectionsList);
-    await Swal.fire(
-      "Success",
-      "Contact Saved"
-      // 'success'
+    await Swal.fire({
+      type: 'success',
+      timer: 2500,
+      title: "Contact Added",
+      text: `${first_name} ${last_name} was successfully added to your network.`
+    }
     );
     if (this.props.updateList) {
       this.props.updateList(newConnectionsList);
@@ -118,7 +115,7 @@ class AddConnection extends Component {
             value={this.state.relation}
             type="text"
           />
-          <TextField
+          {/* <TextField
             id="date"
             label="When Was This Connection Made"
             type="date"
@@ -126,7 +123,7 @@ class AddConnection extends Component {
             className={classes.textField}
             onChange={this.handleChange("dateAdded")}
             InputLabelProps={{ shrink: true }}
-          />
+          /> */}
           <TextField
             label="LinkedIn Profile"
             className={classes.textField}
@@ -141,6 +138,7 @@ class AddConnection extends Component {
             value={this.state.email}
             type="text"
           />
+
           <Button
             variant="contained"
             color="primary"
@@ -162,7 +160,7 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     width: 300,
-    marginTop: 19
+    marginTop: 19,
   }
 });
 export default withRouter(withStyles(styles)(AddConnection));
