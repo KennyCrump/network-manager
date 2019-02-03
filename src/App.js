@@ -3,6 +3,8 @@ import './App.css';
 import Nav from './Components/Nav/Nav'
 import Login from './Components/Login/Login'
 import axios from 'axios'
+import routes from './routes'
+
 
 class App extends Component {
   state={
@@ -25,7 +27,7 @@ class App extends Component {
             this.setState({loggedIn : true})
         }
     })
-}
+  }
 logout = () => {
   axios.post('/auth/logout').then(res => {
     this.setState({loggedIn: false})
@@ -36,11 +38,12 @@ logout = () => {
     return (
       <div className="App">
         {loggedIn ? 
-        <Nav logout={this.logout}/>
+        <Nav logout={this.logout}>
+          {routes} 
+        </Nav>
         :
         <Login login={this.login}/>
         }
-        {/* <Menu /> */}
 
       </div>
     );

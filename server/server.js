@@ -9,7 +9,7 @@ const compCtrl = require('./controllers/companyController')
 
 const app = express()
 
-const {CONNECTION_STRING, SERVER_PORT, SECRET, NODE_ENV, ENVIRONMENT} = process.env
+const {CONNECTION_STRING, SERVER_PORT, SECRET, NODE_ENV} = process.env
 
 app.use(express.json())
 
@@ -19,7 +19,8 @@ app.use(session({
     saveUninitialized: false
 }))
 
-app.use(async (req, res, next) => {
+//development environment middleware for auto-login
+app.use(async (req, res, next) => { 
     if(NODE_ENV === 'development'){
         const db = req.app.get('db')
         const userData = await db.set_data()

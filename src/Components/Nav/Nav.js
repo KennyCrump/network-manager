@@ -32,7 +32,6 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import { Icon } from 'semantic-ui-react'
 
 
-import routes from '../../routes'
 
 
 const drawerWidth = 240;
@@ -97,7 +96,7 @@ const styles = theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
-  
+
   menuButton: {
     marginLeft: 12,
     marginRight: 20,
@@ -121,7 +120,6 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
-    // padding: theme.spacing.unit * 3,
     marginTop: '64px',
     height: `calc(100vh - 64px)`,
     transition: theme.transitions.create('margin', {
@@ -297,10 +295,6 @@ class Nav extends React.Component {
               </IconButton>
             </div>
           </Toolbar>
-          {/* <Toolbar> */}
-            
-            
-          {/* </Toolbar> */}
         </AppBar>
         {renderMenu}
         {renderMobileMenu}
@@ -320,7 +314,7 @@ class Nav extends React.Component {
           </div>
           <Divider />
           <List>
-            {[{label: 'Home', path: '/', icon: 'home'}, {label: 'Connections', path: '/connections', icon: 'users'}, {label: 'Companies', path: '/connections/add', icon: 'building outline'}, {label: 'Drafts', path: '/connections/add', icon: ''}].map((link, index) => (
+            {[{label: 'Home', path: '/', icon: 'home'}, {label: 'Connections', path: '/connections', icon: 'users'}, {label: 'Companies', path: '/companies', icon: 'building outline'}, {label: 'Drafts', path: '/connections/add', icon: ''}].map((link, index) => (
               <Link key={link.label} to={link.path}>
               <ListItem button >
                 <ListItemIcon><Icon name={link.icon} className={classes.icon} size='large' /></ListItemIcon>
@@ -344,7 +338,7 @@ class Nav extends React.Component {
             [classes.contentShift]: open,
           })}
         >
-          {routes}
+          {this.props.children}
         </main>
       </div>
     );
