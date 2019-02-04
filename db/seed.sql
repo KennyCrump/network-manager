@@ -33,5 +33,6 @@ company_name VARCHAR(50),
 logo VARCHAR(400),
 description VARCHAR(400),
 location VARCHAR(150),
-website VARCHAR(150)
+website VARCHAR(150),
+linkedin VARCHAR(150)
 );

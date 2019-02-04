@@ -28,26 +28,8 @@ class AddConnection extends Component {
     });
   };
   addConnection = async () => {
-    const {
-      first_name,
-      last_name,
-      company,
-      position,
-      relation,
-      email,
-      linkedin,
-      dateAdded
-    } = this.state;
-    const res = await axios.post(`/api/connection`, {
-      first_name,
-      last_name,
-      company,
-      position,
-      relation,
-      email,
-      linkedin,
-      dateAdded
-    });
+    const { first_name, last_name, company, position, relation, email, linkedin, dateAdded } = this.state;
+    const res = await axios.post(`/api/connection`, { first_name, last_name, company, position, relation, email, linkedin, dateAdded });
     const newConnectionsList = res.data;
     console.log(newConnectionsList);
     await Swal.fire({

@@ -22,12 +22,8 @@ class Modal extends Component {
     this.setState({ open: false });
   };
   render() {
-    console.log(this.state)
-    // const {open} = this.state
     const { render, open, closeModalFunc } = this.props;
-    
     return (
-
         open &&
         <div className="modal-wrapper" onClick={closeModalFunc}>
           <div className="modal" onClick={e => e.stopPropagation()}>
@@ -35,7 +31,6 @@ class Modal extends Component {
             <h3 className='cancel' onClick={closeModalFunc}>X</h3>
           </div>
         </div>
-        
     );
   }
 }

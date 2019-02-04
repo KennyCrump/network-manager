@@ -4,8 +4,6 @@ import ConnectionMini from "./ConnectionMini";
 import Modal from "../HOC/Modal";
 import AddConnection from "./AddConnection";
 import "./Connections.scss";
-import Fab from '@material-ui/core/Fab';
-import { withStyles } from '@material-ui/core/styles';
 import { Icon } from 'semantic-ui-react'
 
 
@@ -13,18 +11,18 @@ class Connections extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        connectionsList: [],
         addModalToggle: false,
         optionsToggle: false,
-        connections: [],
     };
   }
   componentDidMount() {
     axios.get("/api/connections").then(res => {
-      this.setState({ connections: res.data });
+      this.setState({ connectionsList: res.data });
     });
   }
   updateList =(newList) => {
-      this.setState({connections: newList})
+      this.setState({connectionsList: newList})
   }
   openOptionsMenu = (e) => {
     const {optionsToggle} = this.state
@@ -32,9 +30,9 @@ class Connections extends Component {
     e.stopPropagation()
   }
   render() {
-      const {addModalToggle, optionsToggle} = this.state
-    console.log(this.state.addModalToggle);
-    const connectionsDisplay = this.state.connections.map(connection => (
+    const {connectionsList, addModalToggle, optionsToggle} = this.state
+    
+    const connectionsDisplay = connectionsList.map(connection => (
       <ConnectionMini key={connection.connection_id} {...connection} />
     ));
 
@@ -47,8 +45,8 @@ class Connections extends Component {
           { optionsToggle &&
             <div onClick={(e) => e.stopPropagation()} className="menu-choices-wrapper">
             <div className="menu-choices">
-            <span class="left-right"></span>
-            <span class="left-right left-right-border"></span></div>
+            <span className="left-right"></span>
+            <span className="left-right left-right-border"></span></div>
             </div>
           }
         </div>

@@ -25,7 +25,6 @@ app.use(async (req, res, next) => {
         const db = req.app.get('db')
         const userData = await db.set_data()
         req.session.user = userData[0]
-        console.log('mid', req.session.user)
         next()
     }else{
         next()

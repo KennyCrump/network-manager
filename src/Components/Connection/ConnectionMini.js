@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Icon } from "semantic-ui-react";
-import Modal from "../HOC/Modal";
+// import Modal from "../HOC/Modal";
 
 class ConnectionMini extends Component {
   render() {
