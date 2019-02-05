@@ -5,6 +5,7 @@ import './Company.scss'
 
 import Modal from "../HOC/Modal";
 import AddCompany from './AddCompany'
+import CompanyMini from './CompanyMini'
 
 
 
@@ -32,9 +33,7 @@ class Companies extends Component {
         const {companyList, addModalToggle, optionsToggle} = this.state
         console.log(companyList)
         const displayCompanies = companyList.map((company) => (
-            <div key={company.company_id}>
-                <p>{company.company_name}</p>
-            </div>
+            <CompanyMini key={company.company_id} {...company} />
         ))
         return ( 
       <div className='companies' onClick={(e) => this.setState({optionsToggle: false})}>
@@ -53,7 +52,9 @@ class Companies extends Component {
         </div>
         <Modal open={addModalToggle} render={(close) => <AddCompany updateList={this.updateList} close={close}/>}
         closeModalFunc={() => this.setState({addModalToggle: false})} />
+        <div className='company-mini-wrapper'>
             {displayCompanies}
+        </div>    
         </div> 
         );
     }
