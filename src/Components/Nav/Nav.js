@@ -83,6 +83,7 @@ const styles = theme => ({
     },
   },
   appBar: {
+    background: '#28ABE2',
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -120,6 +121,8 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
+    background: '#252525',
+    overflowY: 'auto',
     marginTop: '64px',
     height: `calc(100vh - 64px)`,
     transition: theme.transitions.create('margin', {
